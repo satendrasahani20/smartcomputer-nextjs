@@ -1,6 +1,4 @@
 import {
-  AssessmentConstant,
-  ModuleConstant,
   courseHeading,
   moduleHeading,
 } from "@/components/common/constant/Admin";

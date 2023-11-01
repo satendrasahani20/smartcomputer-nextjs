@@ -715,3 +715,16 @@ label {
 ::-webkit-scrollbar-thumb:horizontal {
   background: #7b4ee9; /* Horizontal scrollbar thumb color */
 }
+
+
+
+.date-picker-student{
+  margin: 10px;
+  width: 254px;
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+.react-datepicker__header {
+  background-color: rgb(123, 78, 233)!important;
+}
