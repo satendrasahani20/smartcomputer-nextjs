@@ -16,3 +16,7 @@ export const getUser=payload=>({
   type: appActions.GET_USER,
   payload
 });
+export const uploadImageAction=payload=>({
+  type: appActions.UPLOAD_IMAGE,
+  payload
+});

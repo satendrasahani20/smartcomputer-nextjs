@@ -16,4 +16,6 @@ export const commonApi = {
       `/job-post?status=${payload?.pageType}&page=${payload?.pageData?.page}&limit=${payload?.pageData?.limit}`
     ),
   OPEN_COMPANY_PROFILE: () => api.get("/get-client-spotlight"),
+  UPLOAD_IMAGE:payload=>api.post("/upload-image/",payload.data),
+  
 };

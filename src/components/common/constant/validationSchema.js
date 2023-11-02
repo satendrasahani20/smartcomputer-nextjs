@@ -22,3 +22,20 @@ export const addQuestionSchema = Yup.object().shape({
     moduleName: Yup.string().required("Module Name is required"),
     content: Yup.string().required("Content  is required"),
   });
+
+  export const updateStudentSchema=Yup.object({
+    name: Yup.string().required("Name is required"),
+    fatherName: Yup.string().required("Father Name is required"),
+    email: Yup.string().email("Invalid email address").required("Email is required"),
+    // dateOfBirth: Yup.date().nullable().required("Birthdate is required"),
+    // contact: Yup.string().required("Contact is required"),
+    state: Yup.string().required("State is required"),
+    district: Yup.string().required("District is required"),
+    address: Yup.string().required("Address is required"),
+    pincode: Yup.string().required("Pincode is required"),
+    qualification: Yup.string().required("Qualification is required"),
+    password: Yup.string().required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm Password is required"),
+  })

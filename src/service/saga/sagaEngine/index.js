@@ -4,23 +4,23 @@ import { appApi } from "../../api";
 import { Toaster } from "@/components/common/toaster/Toaster";
 
 export function* sagaEngine({ type, payload }) {
-
   try {
-    yield put({ type: `${appActions[type]}_START` });
+    yield put({ type: `${appActions[type]}_START`, request: payload });
     const response = yield call(appApi[type], payload);
     payload?.cb && payload.cb(response?.data);
     yield put({
       type: `${appActions[type]}_SUCCESS`,
       payload: response.data,
+      request: payload,
     });
   } catch (error) {
-    Toaster.error(error?.message);
+    Toaster.error(error?.response?.data?.message || error?.message);
     if (error?.response?.status === 401) {
-      yield put({ type: `${appActions[type]}_FAIL` });
+      yield put({ type: `${appActions[type]}_FAIL` ,request: payload});
       payload.push && payload.push("/login");
     }
-    payload?.cb && payload.cb(error?.response)
-   
+    payload?.cb && payload.cb(error?.response);
+
     yield put({ type: `${appActions[type]}_FAIL` });
   }
 }

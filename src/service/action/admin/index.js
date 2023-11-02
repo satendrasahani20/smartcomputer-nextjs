@@ -43,3 +43,8 @@ export const deleteQuestionAction = (payload) => ({
   payload,
 });
 
+export const registerNewStudent = (payload) => ({
+  type: appActions.STUDENT_REGSITER,
+  payload,
+});
+

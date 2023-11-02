@@ -3,11 +3,12 @@ import React from "react";
 import DocumentUpload from "./form/DocumentUpload";
 import Form from "./form/Form";
 
-const RegistrationFormContent = () => {
+const RegistrationFormContent = ({formik}) => {
+  
   return (
-    <Box sx={{ height: 550, marginTop: 1 }}>
-      <DocumentUpload/>
-      <Form />
+    <Box sx={{ height: 400, marginTop: 1 }}>
+      <DocumentUpload formik={formik}/>
+      <Form formik={formik}/>
     </Box>
   );
 };

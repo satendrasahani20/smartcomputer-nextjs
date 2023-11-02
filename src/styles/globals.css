@@ -728,3 +728,6 @@ label {
 .react-datepicker__header {
   background-color: rgb(123, 78, 233)!important;
 }
+.react-datepicker-popper {
+  z-index: 2!important;
+}
