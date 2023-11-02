@@ -12,7 +12,7 @@ import ModuleTableBody from "./module/ModuleTableBody";
 import ModuleContentForm from "./module/ModuleFormContent";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { addCourseAction, getCourse, getModulesAction } from "@/service/action/admin";
+import { addCourseAction, getCourse, getModulesAction, updateCourseAction } from "@/service/action/admin";
 import { useFormik } from "formik";
 import { addCourseInitial } from "@/components/common/constant/formInitialValue";
 import { addCourseSchema } from "@/components/common/constant/validationSchema";
