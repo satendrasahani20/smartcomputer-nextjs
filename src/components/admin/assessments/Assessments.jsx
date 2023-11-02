@@ -36,8 +36,9 @@ const Assessments = () => {
     initialValues: addCourseInitial,
     validationSchema: addCourseSchema,
     onSubmit:(data)=>{
+      console.log("update or add")
       courseDetail.edit?
-      dispatch(updateCourseAction({data,cb:getCourses}))
+       dispatch(updateCourseAction({data,cb:getCourses}))
       :dispatch(addCourseAction({data,cb:getCourses}))
     }
   });
