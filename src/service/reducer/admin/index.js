@@ -52,28 +52,38 @@ export const adminReducer = (state = initialState, action) => {
     case `${appActions.ADD_ADMIN_QUESTION}_FAIL`:
       return { ...state, isAddNewQuestion: false };
 
+    case `${appActions.UPDATE_ADMIN_MODULE}_START`:
+      return { ...state, isUpdateModule: true };
+    case `${appActions.UPDATE_ADMIN_MODULE}_SUCCESS`:
+      return {
+        ...state,
+        isUpdateModule: false,
+      };
+    case `${appActions.UPDATE_ADMIN_MODULE}_FAIL`:
+      return { ...state, isUpdateModule: false };
 
-      case `${appActions.UPDATE_ADMIN_MODULE}_START`:
-        return { ...state, isUpdateModule: true };
-      case `${appActions.UPDATE_ADMIN_MODULE}_SUCCESS`:
-        return {
-          ...state,
-          isUpdateModule: false,
-        };
-      case `${appActions.UPDATE_ADMIN_MODULE}_FAIL`:
-        return { ...state, isUpdateModule: false };
+    case `${appActions.ADD_ADMIN_MODULE}_START`:
+      return { ...state, isAddModule: true };
+    case `${appActions.ADD_ADMIN_MODULE}_SUCCESS`:
+      return {
+        ...state,
+        isAddModule: false,
+      };
+    case `${appActions.ADD_ADMIN_MODULE}_FAIL`:
+      return { ...state, isAddModule: false };
 
-        case `${appActions.ADD_ADMIN_MODULE}_START`:
-          return { ...state, isAddModule: true };
-        case `${appActions.ADD_ADMIN_MODULE}_SUCCESS`:
-          return {
-            ...state,
-            isAddModule: false,
-          };
-        case `${appActions.ADD_ADMIN_MODULE}_FAIL`:
-          return { ...state, isAddModule: false };
+    // Get Student Lists
 
-      
+    case `${appActions.STUDENT_LISTS}_START`:
+      return { ...state, isStudentLists: true };
+    case `${appActions.STUDENT_LISTS}_SUCCESS`:
+      return {
+        ...state,
+        isStudentLists: false,
+        studentLists:action?.payload
+      };
+    case `${appActions.STUDENT_LISTS}_FAIL`:
+      return { ...state, isStudentLists: false };
 
     default:
       return { ...state };

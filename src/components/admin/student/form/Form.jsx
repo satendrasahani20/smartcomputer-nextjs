@@ -1,90 +1,73 @@
-import React from "react";
-import { Box, Button } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box } from "@mui/material";
 
 import InputField from "@/components/common/InputField";
-import CustomDatePicker from "@/components/common/date-picker/CustomDatePicker";
-import RadioButton from "@/components/common/radio-button/RadioButton";
+import SelectBox from "@/components/common/SelectBox/SelectBox";
+import { useSelector } from "react-redux";
 
 const Form = ({ formik }) => {
-  return (
-    <Box sx={{ mt: 3 }}>
-      <Box sx={{ display: "flex", alignContent: "center" }}>
-        <InputField
-          label="name"
-          name="name"
-          sx={{ marginLeft: 1 }}
-          size="small"
-          formik={formik}
-        />
-        <InputField
-          label="Father Name"
-          name="fatherName"
-          sx={{ marginLeft: 1 }}
-          size="small"
-          formik={formik}
-        />
-        <InputField
-          label="Email"
-          name="email"
-          sx={{ marginLeft: 1 }}
-          size="small"
-          formik={formik}
-        />
-      </Box>
-      <Box sx={{ display: "flex", alignContent: "center" }}>
-        <Box sx={{ marginTop: 1 }}>
-          <CustomDatePicker name={"dateOfBirth"}  formik={formik} className="date-picker-student" />
-        </Box>
+  const { courseData } = useSelector((state) => state.adminReducer);
+  const [corseLists, setCourseLists] = useState([]);
 
-        <InputField
-          label="Contact"
-          name="number"
-          sx={{ marginLeft: 1, marginTop: 2 }}
-          size="small"
-          formik={formik}
-        />
+  useEffect(() => {
+    let tempArr = [];
+    if (courseData?.data) {
+      courseData?.data?.map((itm) => {
+        tempArr.push({ value: itm?._id, label: itm?.name });
+      });
+    }
+    setCourseLists(tempArr);
+  }, [courseData]);
+  return (
+    <Box>
+      <Box sx={{ display: "flex", alignContent: "center" }}>
         <InputField
           label="State"
-          name="state"
+          name="userState"
           sx={{ marginLeft: 1, marginTop: 2 }}
           size="small"
           formik={formik}
         />
+        <Box sx={{ margin: 1, mt: 2, width: 600 }}>
+          <SelectBox
+            formik={formik}
+            label={"Select Course"}
+            name={"userCourse"}
+            listItem={corseLists}
+          />
+        </Box>
       </Box>
       <Box sx={{ display: "flex", alignContent: "center" }}>
         <InputField
           label="District"
-          name="district"
+          name="userCity"
           sx={{ marginLeft: 1, marginTop: 2 }}
           size="small"
           formik={formik}
         />
         <InputField
           label="Address"
-          name="address"
+          name="userAddress"
           sx={{ marginLeft: 1, marginTop: 2 }}
           size="small"
           formik={formik}
         />
         <InputField
           label="Pincode"
-          name="pincode"
+          name="userPincode"
           sx={{ marginLeft: 1, marginTop: 2 }}
           size="small"
           formik={formik}
         />
         <InputField
           label="Qualification"
-          name="qualification"
+          name="userQualification"
           sx={{ marginLeft: 1, marginTop: 2 }}
           size="small"
           formik={formik}
         />
       </Box>
       <Box sx={{ display: "flex", alignContent: "center" }}>
-        <Box width={1000} sx={{ marginLeft: 1,marginTop:2 }}>
-          <RadioButton formik={formik}/>
-        </Box>
         <InputField
           label="Password"
           name="password"

@@ -11,10 +11,9 @@ const StudentTableBody = ({ data = [], editBtn, detailBtn }) => {
       <StyledTableCell component="th" scope="row">
         {index + 1}
       </StyledTableCell>
-      <StyledTableCell>{row?._id}</StyledTableCell>
       <StyledTableCell>{row?.name}</StyledTableCell>
-      <StyledTableCell>{row?.course}</StyledTableCell>
-      <StyledTableCell>{row?.institute}</StyledTableCell>
+      <StyledTableCell>{row?.courseName}</StyledTableCell>
+      <StyledTableCell>{row?.institute || "Smart Computer"}</StyledTableCell>
       <StyledTableCell>
         <IconButtons
           onClick={(e) => {

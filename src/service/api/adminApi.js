@@ -11,6 +11,9 @@ export const adminApi = {
     ADD_ADMIN_QUESTION: payload => api.post(`/admin/questions/${payload.moduleId}`,payload.data),
     UPDATE_ADMIN_QUESTION: payload => api.put(`/admin/questions/${payload.moduleId}/${payload?.data?._id}`,payload?.data),
     DELETE_ADMIN_QUESTION:payload=>api.delete(`/admin/questions/${payload?.moduleId}/${payload?.questionId}`),
-    STUDENT_REGSITER:payload=>api.post('user/register',payload?.data)
+    STUDENT_REGSITER:payload=>api.post('/admin/student/register',payload?.data),
+    STUDENT_LISTS:payload=>api.get(`/admin/student/lists?page=${payload?.pageData?.page}&limit=${payload?.pageData?.limit}`),
+    UPDATE_STUDENT:payload=>api.put(`/admin/student/update/${payload?.studentId}`,payload?.data),
+    DELETE_STUDENT:payload=>api.delete(`/admin/student/${payload?.studentId}`,payload?.data)
     
 };

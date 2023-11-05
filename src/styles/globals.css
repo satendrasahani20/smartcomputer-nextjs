@@ -720,7 +720,7 @@ label {
 
 .date-picker-student{
   margin: 10px;
-  width: 254px;
+  width: 144px;
   padding: 6px;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
@@ -730,4 +730,8 @@ label {
 }
 .react-datepicker-popper {
   z-index: 2!important;
+}
+
+.empty-field {
+  border: 1px solid red;
 }

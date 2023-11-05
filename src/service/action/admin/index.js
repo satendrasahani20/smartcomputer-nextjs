@@ -47,4 +47,17 @@ export const registerNewStudent = (payload) => ({
   type: appActions.STUDENT_REGSITER,
   payload,
 });
+export const updateStudentAction = (payload) => ({
+  type: appActions.UPDATE_STUDENT,
+  payload,
+});
 
+export const getStudentListsAction = payload => ({
+  type: appActions.STUDENT_LISTS,
+  payload,
+});
+
+export const deleteStudentAction = payload => ({
+  type: appActions.DELETE_STUDENT,
+  payload,
+});

@@ -19,7 +19,7 @@ export function* sagaEngine({ type, payload }) {
       yield put({ type: `${appActions[type]}_FAIL` ,request: payload});
       payload.push && payload.push("/login");
     }
-    payload?.cb && payload.cb(error?.response);
+    payload?.errorCB && payload.errorCB(error?.response);
 
     yield put({ type: `${appActions[type]}_FAIL` });
   }

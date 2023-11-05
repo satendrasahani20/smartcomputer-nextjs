@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button } from "@mui/material";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadImageAction } from "@/service/action/common";
 import MaterialIcons from "@/components/common/icons/materialIcons";
+import InputField from "@/components/common/InputField";
+import CustomDatePicker from "@/components/common/date-picker/CustomDatePicker";
+import RadioButton from "@/components/common/radio-button/RadioButton";
+import SampleImage from "../../../../../public/assets/images/profile-sample.png";
 const DocumentUpload = ({ formik }) => {
+  const { courseData } = useSelector((state) => state.adminReducer);
+  const [corseLists, setCourseLists] = useState([]);
   const dispatch = useDispatch();
-  const {
-    image,
-    adharCardBack,
-    adharCardFront,
-    isLoadingimage,
-    isLoadingadharCardFront,
-    isLoadingadharCardBack,
-  } = useSelector((state) => state?.commonReducer);
+  const { image, isLoadingimage } = useSelector(
+    (state) => state?.commonReducer
+  );
   const handleChangeFile = (name, e) => {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
@@ -25,16 +26,17 @@ const DocumentUpload = ({ formik }) => {
       formik.setValues((values) => ({ ...values, image }));
     }
   }, [image]);
+
   useEffect(() => {
-    if (adharCardBack) {
-      formik.setValues((values) => ({ ...values, adharCardBack }));
+    let tempArr = [];
+    if (courseData?.data) {
+      courseData?.data?.map((itm) => {
+        tempArr.push({ value: itm?._id, label: itm?.label });
+      });
     }
-  }, [adharCardBack]);
-  useEffect(() => {
-    if (adharCardFront) {
-      formik.setValues((values) => ({ ...values, adharCardFront }));
-    }
-  }, [adharCardFront]);
+    setCourseLists(tempArr);
+  }, [courseData]);
+
   return (
     <Box
       sx={{
@@ -43,11 +45,13 @@ const DocumentUpload = ({ formik }) => {
         justifyContent: "space-between",
       }}
     >
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
         {isLoadingimage ? (
           <MaterialIcons iconName={"loader"} />
         ) : (
-          <Image src={image} width={100} height={100} />
+          <Image src={formik?.values?.image || SampleImage} width={54} height={54} />
         )}
 
         <Button
@@ -56,7 +60,7 @@ const DocumentUpload = ({ formik }) => {
           component="label"
           size="small"
         >
-          Upload Image
+          Upload
           <input
             type="file"
             hidden
@@ -64,47 +68,49 @@ const DocumentUpload = ({ formik }) => {
           />
         </Button>
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        {isLoadingadharCardFront ? (
-          <MaterialIcons iconName={"loader"} />
-        ) : (
-          <Image src={adharCardFront} width={270} height={100} />
-        )}
-
-        <Button
-          sx={{ mt: 1 }}
-          variant="contained"
-          component="label"
-          size="small"
-        >
-          Upload Front Adhar
-          <input
-            type="file"
-            onChange={(e) => handleChangeFile("adharCardFront", e)}
-            hidden
+      <Box sx={{ width: "90%" }}>
+        <Box sx={{ display: "flex", alignContent: "center" }}>
+          <InputField
+            label="name"
+            name="name"
+            sx={{ marginLeft: 1 }}
+            size="small"
+            formik={formik}
           />
-        </Button>
-      </Box>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        {isLoadingadharCardBack ? (
-          <MaterialIcons iconName={"loader"} />
-        ) : (
-          <Image src={adharCardBack} width={270} height={100} />
-        )}
-
-        <Button
-          sx={{ mt: 1 }}
-          variant="contained"
-          component="label"
-          size="small"
-        >
-          Upload Front Back
-          <input
-            type="file"
-            onChange={(e) => handleChangeFile("adharCardBack", e)}
-            hidden
+          <InputField
+            label="Father Name"
+            name="fatherName"
+            sx={{ marginLeft: 1 }}
+            size="small"
+            formik={formik}
           />
-        </Button>
+          <InputField
+            label="Email"
+            name="email"
+            sx={{ marginLeft: 1 }}
+            size="small"
+            formik={formik}
+          />
+        </Box>
+        <Box sx={{ display: "flex", alignContent: "center" }}>
+          <Box sx={{ marginTop: 1 }}>
+            <CustomDatePicker
+              name={"dateOfBirth"}
+              formik={formik}
+              className="date-picker-student"
+            />
+          </Box>
+          <InputField
+            label="Contact"
+            name="number"
+            sx={{ marginLeft: 1, marginTop: 2 }}
+            size="small"
+            formik={formik}
+          />
+          <Box sx={{ marginLeft: 1, width: "1000px", marginTop: 2 }}>
+            <RadioButton formik={formik} />
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

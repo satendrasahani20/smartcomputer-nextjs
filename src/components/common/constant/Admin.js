@@ -27,7 +27,6 @@ export const moduleHeading = [
 
 export const studentTableHeading = [
   "Sr.No",
-  "Id",
   "Name",
   "Course",
   "Institute",

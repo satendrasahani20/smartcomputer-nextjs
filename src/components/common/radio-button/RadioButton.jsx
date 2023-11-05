@@ -11,6 +11,7 @@ export default function RadioButton({formik}) {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        value={formik?.values?.gender}
         onChange={(e)=>formik.setValues((values) => ({ ...values, gender:e.target.value }))}
       >
         <FormControlLabel value="female" control={<Radio />} label="Female" />

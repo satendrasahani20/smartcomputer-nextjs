@@ -11,30 +11,60 @@ import RegistrationFormContent from "./RegistrationFormContent";
 import { useFormik } from "formik";
 import { studentRegister } from "@/components/common/constant/formInitialValue";
 import { updateStudentSchema } from "@/components/common/constant/validationSchema";
-import { useDispatch } from "react-redux";
-import { registerNewStudent } from "@/service/action/admin";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteStudentAction, getCourse, getStudentListsAction, registerNewStudent, updateStudentAction } from "@/service/action/admin";
 import { Toaster } from "@/components/common/toaster/Toaster";
 
-
 const StudentDashboard = () => {
+  const {studentLists}=useSelector((state)=>state.adminReducer)
   const [addStudent, setAddStudent] = useState({
     edit: false,
     modal: false,
   });
-  const dispatch=useDispatch();
-  const callBack=(res)=>{
-    console.log("callle",res)
-    Toaster.success(res?.message)
+  const dispatch = useDispatch();
+  const [pageData,setPageData]=useState({
+     page:1,
+     limit:10
+  })
+
+  function getStudent(noUse=false,page=1){
+    dispatch(getStudentListsAction({pageData:{...pageData,page}}))
   }
-    const addStudentFormik = useFormik({
+
+  useEffect(()=>{
+    getStudent()
+    dispatch(getCourse({pageData:{page:1,limit:100}}))
+  },[])
+
+  const addStudentFormik = useFormik({
     initialValues: studentRegister,
     validationSchema: updateStudentSchema,
     onSubmit: (values) => {
-      // Handle form submission here
-      console.log(values);
-      dispatch(registerNewStudent({data:values,cb:callBack}))
+      addStudent.edit?
+      dispatch(updateStudentAction({studentId:values?._id,data:values,cb: callBack}))
+      :dispatch(registerNewStudent({ data: values, cb: callBack }));
     },
   });
+
+  function callBack(res){
+    Toaster.success(res?.message)
+    getStudent()
+    addStudentFormik.resetForm()
+    setAddStudent({})
+  }
+
+  const editStudent=(data)=>{
+    let dateOfBirth=new Date(data.dateOfBirth)
+    addStudentFormik.setValues({...data,dateOfBirth})
+    setAddStudent({edit:true,modal:true})
+  }
+
+  const handleStudentDelete=()=>{
+    if(addStudent?.edit){
+      dispatch(deleteStudentAction({studentId:addStudentFormik.values?._id,cb:callBack}))
+    }
+    return false
+  }
   return (
     <>
       <Box sx={{ position: "absolute", right: 14, marginTop: -6 }}>
@@ -42,7 +72,7 @@ const StudentDashboard = () => {
           size="small"
           variant="outlined"
           sx={{ borderColor: "white", color: "white" }}
-          onClick={() => setAddStudent({ modal: true })}
+          onClick={() =>{addStudentFormik.resetForm(); setAddStudent({ modal: true })}}
         >
           Add Student
         </Button>
@@ -50,12 +80,13 @@ const StudentDashboard = () => {
       <Table
         tableHeading={studentTableHeading}
         isDataLoading={false}
-        getData={() => console.log("ddd")}
+        getData={getStudent}
+        data={studentLists}
         tableBody={
           <StudentTableBody
-            detailBtn={() => console.log("ddd")}
-            editBtn={() => console.log("ddd")}
-            data={studentLists}
+            detailBtn={editStudent}
+            editBtn={editStudent}
+            data={studentLists?.data}
           />
         }
       />
@@ -63,10 +94,12 @@ const StudentDashboard = () => {
       <CustomModal
         open={addStudent?.modal}
         onClose={() => setAddStudent({})}
+        successBtnTitle={addStudent?.edit ? "Upadate Student" : "Add Student"}
         title={addStudent?.edit ? "Upadate Student" : "Add Student"}
         onDone={addStudentFormik.handleSubmit}
         content={() => <RegistrationFormContent formik={addStudentFormik} />}
         onCancel={() => setAddStudent({})}
+        onDelete={handleStudentDelete}
       />
     </>
   );

@@ -3,6 +3,7 @@ import axios from "axios";
 const baseUrl = () => {
   let Base_url ="https://smartcomputer-api.vercel.app/"
   //  "https://smartcomputer-api.vercel.app/";
+  // http://localhost:3000/
 
   // if (window?.location?.href?.includes("https://dev")) {
   //   Base_url = "https://api.dev.olibr.com/v1";

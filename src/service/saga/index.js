@@ -27,6 +27,10 @@ function* mySaga() {
   yield takeEvery(appActions.UPDATE_ADMIN_QUESTION,sagaEngine)
   yield takeEvery(appActions.DELETE_ADMIN_QUESTION,sagaEngine)
   yield takeEvery(appActions.STUDENT_REGSITER,sagaEngine)
+  yield takeEvery(appActions.STUDENT_LISTS,sagaEngine)
+  yield takeEvery(appActions.UPDATE_STUDENT,sagaEngine)
+  yield takeEvery(appActions.DELETE_STUDENT,sagaEngine)
+  
   // common
   yield takeEvery(appActions.UPLOAD_IMAGE,sagaEngine)
   
