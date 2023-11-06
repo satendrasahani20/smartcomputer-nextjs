@@ -735,3 +735,13 @@ label {
 .empty-field {
   border: 1px solid red;
 }
+
+.student-search fieldset{
+  border-color: white;
+  border-width: 1px;
+  margin-right: 12px;
+  height: 37px;
+}
+.student-search .css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input{
+  padding: 6px 13px;
+}

@@ -27,70 +27,10 @@ export const moduleHeading = [
 
 export const studentTableHeading = [
   "Sr.No",
+  "Image",
   "Name",
-  "Course",
   "Institute",
+  "Reg Date",
+  "Result",
   "Edit"
 ];
-export const studentLists=[
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  },
-  {
-    _id:"8hbud873uh839",
-    name:"Satendra",
-    course:"BCA",
-    institute:"SVIIT",
-  }
-]
