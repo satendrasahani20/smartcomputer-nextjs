@@ -61,3 +61,21 @@ export const deleteStudentAction = payload => ({
   type: appActions.DELETE_STUDENT,
   payload,
 });
+
+export const registerCentreAction = payload => ({
+  type: appActions.ADD_CENTRE,
+  payload,
+});
+
+export const getCentreAction = payload => ({
+  type: appActions.GET_CENTRE,
+  payload,
+});
+export const updateCentreAction = (payload) => ({
+  type: appActions.UPDATE_CENTRE,
+  payload,
+});
+export const deleteCentreAction = payload => ({
+  type: appActions.DELETE_CENTRE,
+  payload,
+});

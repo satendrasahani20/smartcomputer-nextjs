@@ -39,3 +39,19 @@ export const addQuestionSchema = Yup.object().shape({
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm Password is required"),
   })
+
+  export const updateQuardinateSchema=Yup.object({
+    name: Yup.string().required("Name is required"),
+    fatherName: Yup.string().required("Father Name is required"),
+    email: Yup.string().email("Invalid email address").required("Email is required"),
+    userState: Yup.string().required("State is required"),
+    number: Yup.string().required("Mobile Number is required"),
+    userCity: Yup.string().required("District is required"),
+    userAddress: Yup.string().required("Address is required"),
+    userPincode: Yup.string().required("Pincode is required"),
+    userQualification: Yup.string().required("Qualification is required"),
+    password: Yup.string().required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm Password is required"),
+  })

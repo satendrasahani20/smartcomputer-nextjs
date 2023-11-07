@@ -30,6 +30,10 @@ function* mySaga() {
   yield takeEvery(appActions.STUDENT_LISTS,sagaEngine)
   yield takeEvery(appActions.UPDATE_STUDENT,sagaEngine)
   yield takeEvery(appActions.DELETE_STUDENT,sagaEngine)
+  yield takeEvery(appActions.ADD_CENTRE,sagaEngine)
+  yield takeEvery(appActions.GET_CENTRE,sagaEngine)
+  yield takeEvery(appActions.DELETE_CENTRE,sagaEngine)
+  yield takeEvery(appActions.UPDATE_CENTRE,sagaEngine)
   
   // common
   yield takeEvery(appActions.UPLOAD_IMAGE,sagaEngine)

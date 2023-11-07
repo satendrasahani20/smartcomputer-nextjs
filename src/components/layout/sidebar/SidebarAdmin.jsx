@@ -47,6 +47,15 @@ const SidebarAdmin = () => {
               Centre
             </a>
           </li>
+          <li onClick={() => router?.push("/admin/quardinator")}>
+            <a href="#"  className={`${router.asPath.includes("/admin/quardinator") && "active"}`}>
+              {" "}
+              <span>
+                <Image height="17" src={Assessment} alt="Assesments" />
+              </span>{" "}
+              Quardinator
+            </a>
+          </li>
           <li onClick={() => router?.push("/admin/results")}>
             <a href="#"  className={`${router.asPath.includes("/admin/results") && "active"}`}>
               {" "}

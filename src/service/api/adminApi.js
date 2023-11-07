@@ -12,8 +12,12 @@ export const adminApi = {
     UPDATE_ADMIN_QUESTION: payload => api.put(`/admin/questions/${payload.moduleId}/${payload?.data?._id}`,payload?.data),
     DELETE_ADMIN_QUESTION:payload=>api.delete(`/admin/questions/${payload?.moduleId}/${payload?.questionId}`),
     STUDENT_REGSITER:payload=>api.post('/admin/student/register',payload?.data),
-    STUDENT_LISTS:payload=>api.get(`/admin/student/lists?search=${payload.search}&page=${payload?.pageData?.page}&limit=${payload?.pageData?.limit}`),
+    STUDENT_LISTS:payload=>api.get(`/admin/student/lists?role=${payload.role}&search=${payload.search}&page=${payload?.pageData?.page}&limit=${payload?.pageData?.limit}`),
     UPDATE_STUDENT:payload=>api.put(`/admin/student/update/${payload?.studentId}`,payload?.data),
-    DELETE_STUDENT:payload=>api.delete(`/admin/student/${payload?.studentId}`,payload?.data)
+    DELETE_STUDENT:payload=>api.delete(`/admin/student/${payload?.studentId}`,payload?.data),
+    ADD_CENTRE:payload=>api.post('/admin/centre',payload?.data),
+    GET_CENTRE:payload=>api.get(`/admin/centre?search=${payload.search}&page=${payload?.pageData?.page}&limit=${payload?.pageData?.limit}`),
+    UPDATE_CENTRE: payload => api.put(`/admin/centre/${payload.centreId}`,payload?.data),
+    DELETE_CENTRE:payload=>api.delete(`/admin/centre/${payload?.centreId}`),
     
 };

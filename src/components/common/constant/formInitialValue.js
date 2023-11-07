@@ -39,6 +39,23 @@ export const studentRegister={
   userCourse:"",
   image:"",
 }
+export const quardinatorRegister={
+  name: "",
+  fatherName: "",
+  email: "",
+  dateOfBirth: null, // Assuming it's a date
+  number: "",
+  userState: "",
+  gender:"male",
+  userCity: "",
+  userAddress: "",
+  userPincode: "",
+  userQualification: "",
+  password: "",
+  confirmPassword: "",
+  image:"",
+}
+
 
 export const studentRegisterData={
   name: "Satendra",
@@ -55,3 +72,24 @@ export const studentRegisterData={
   confirmPassword: "123456",
   image:"",
 }
+
+export const initialValuesCentre = {
+  centreName: "",
+  ownerName: "",
+  password: "",
+  fatherName: "",
+  gender: "male",
+  qualification: "",
+  adharNo: "",
+  state: "",
+  city: "",
+  address: "",
+  pincode: "",
+  number: "",
+  email: "",
+  centrePhoto: {
+    inner: "",
+    outer: ""
+  },
+  teacher: []
+};

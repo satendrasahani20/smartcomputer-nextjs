@@ -80,11 +80,22 @@ export const adminReducer = (state = initialState, action) => {
       return {
         ...state,
         isStudentLists: false,
-        studentLists:action?.payload
+        studentLists: action?.payload,
       };
     case `${appActions.STUDENT_LISTS}_FAIL`:
       return { ...state, isStudentLists: false };
 
+    // Get Centre Lists
+    case `${appActions.GET_CENTRE}_START`:
+      return { ...state, isCentreLoading: true };
+    case `${appActions.GET_CENTRE}_SUCCESS`:
+      return {
+        ...state,
+        isCentreLoading: false,
+        centreLists: action?.payload,
+      };
+    case `${appActions.GET_CENTRE}_FAIL`:
+      return { ...state, isCentreLoading: false };
     default:
       return { ...state };
   }

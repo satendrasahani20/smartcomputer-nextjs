@@ -31,6 +31,15 @@ export const studentTableHeading = [
   "Name",
   "Institute",
   "Reg Date",
-  "Result",
+  "Centre",
+  "Edit"
+];
+export const centreTableHeading = [
+  "Sr.No",
+  "Centre",
+  "Owner",
+  "Contact",
+  "Reg Date",
+  "Address",
   "Edit"
 ];

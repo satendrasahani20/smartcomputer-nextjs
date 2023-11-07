@@ -36,7 +36,7 @@ const StudentDashboard = () => {
   });
 
   function getStudent(search = "", page = 1) {
-    dispatch(getStudentListsAction({ search,pageData: { ...pageData, page } }));
+    dispatch(getStudentListsAction({ search,pageData: { ...pageData, page }, role: "student" }));
   }
 
   useEffect(() => {
@@ -52,11 +52,11 @@ const StudentDashboard = () => {
         ? dispatch(
             updateStudentAction({
               studentId: values?._id,
-              data: values,
+              data: {...values, role: "student"},
               cb: callBack,
             })
           )
-        : dispatch(registerNewStudent({ data: values, cb: callBack }));
+        : dispatch(registerNewStudent({ data: {...values, role: "student"}, cb: callBack }));
     },
   });
 
