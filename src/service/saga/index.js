@@ -35,6 +35,7 @@ function* mySaga() {
   yield takeEvery(appActions.UPLOAD_IMAGE,sagaEngine)
   
   
+  
 }
 
 export default mySaga;

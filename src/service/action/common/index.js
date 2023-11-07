@@ -20,3 +20,7 @@ export const uploadImageAction=payload=>({
   type: appActions.UPLOAD_IMAGE,
   payload
 });
+export const clearImageAction=payload=>({
+  type: appActions.CLEAR_IMAGE,
+  payload
+});

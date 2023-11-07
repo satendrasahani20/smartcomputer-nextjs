@@ -48,6 +48,9 @@ export const commonReducer = (state = initialState, action) => {
     case `${appActions.UPLOAD_IMAGE}_FAIL`:
       return { ...state, isJobLoading: true ,[`isLoading${action?.request?.imageType}`]:false};
 
+      case appActions.CLEAR_IMAGE:
+        return {...state,[action?.payload?.imageName]:null}
+
     default:
       return { ...state };
   }

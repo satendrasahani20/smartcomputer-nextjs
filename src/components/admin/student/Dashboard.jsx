@@ -20,6 +20,7 @@ import {
 } from "@/service/action/admin";
 import { Toaster } from "@/components/common/toaster/Toaster";
 import { debounce } from "lodash";
+import { clearImageAction } from "@/service/action/common";
 
 const StudentDashboard = () => {
   const { studentLists } = useSelector((state) => state.adminReducer);
@@ -64,6 +65,7 @@ const StudentDashboard = () => {
     getStudent();
     addStudentFormik.resetForm();
     setAddStudent({});
+    dispatch(clearImageAction({imageName:"image"}))
   }
 
   const editStudent = (data) => {
