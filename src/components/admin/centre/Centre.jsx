@@ -15,6 +15,8 @@ import CentreTableBody from "./CentreTableBody";
 import CustomModal from "@/components/common/modals/Modal";
 import RegistrationFormContent from "./RegistrationFormContent";
 import { deleteCentreAction, getCentreAction, registerCentreAction, updateCentreAction } from "@/service/action/admin";
+import InputField from "@/components/common/InputField";
+import SearchField from "@/components/common/SearchField";
 
 const Centre = () => {
   const { isCentreLoading,centreLists } = useSelector((state) => state.adminReducer);
@@ -81,13 +83,7 @@ const Centre = () => {
   return (
     <>
       <Box sx={{ position: "absolute", right: 14, marginTop: -6 }}>
-        <TextField
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search"
-          size="small"
-          className="student-search"
-        />
+      <SearchField search={search} setSearch={setSearch} />
         <Button
           size="small"
           variant="outlined"

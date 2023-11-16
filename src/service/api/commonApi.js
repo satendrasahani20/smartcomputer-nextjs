@@ -6,7 +6,7 @@ export const commonApi = {
   SIGN_UP: payload => api.post("/sign-up", payload),
   FORGET_PASSWORD: payload => api.put("/forget-password", payload.data),
   RESET_PASSWORD: payload => api.put("/reset-password", payload),
-  LOGOUT: () => api.get("/logout"),
+  LOGOUT: () => api.get("/auth/logout"),
   EMAIL_VERIFICATION: payload => api.post("/email-verification", payload),
   RESEND_EMAIL_VERIFICATION: payload =>
     api.post("/resend-email-verification", payload),

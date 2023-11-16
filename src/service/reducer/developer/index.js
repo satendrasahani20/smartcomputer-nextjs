@@ -14,6 +14,14 @@ export const developerReducer = (state = initialState, action) => {
   case `${appActions.FORGET_PASSWORD}_FAIL`:
     return { ...state, devListLoading: true };
 
+    // Start Question
+    case `${appActions.START_TEST}_START`:
+      return { ...state, isStartTest: true };
+    case `${appActions.START_TEST}_SUCCESS`:
+      return { ...state, isStartTest: true ,testData:action?.payload};
+    case `${appActions.START_TEST}_FAIL`:
+      return { ...state, isStartTest: true };
+
   default:
     return { ...state };
   }

@@ -13,6 +13,8 @@ function* mySaga() {
   yield takeLatest(appActions.OPEN_COMPANY_PROFILE,sagaEngine);
   yield takeEvery(appActions.FORGET_PASSWORD,sagaEngine)
   yield takeEvery(appActions.GET_USER,sagaEngine)
+  yield takeEvery(appActions.LOGOUT,sagaEngine)
+  
 
 
   // admin
@@ -37,7 +39,12 @@ function* mySaga() {
   
   // common
   yield takeEvery(appActions.UPLOAD_IMAGE,sagaEngine)
-  
+
+  // student
+  yield takeEvery(appActions.GET_STUDENT_COURSE,sagaEngine)
+  yield takeEvery(appActions.START_TEST,sagaEngine),
+  yield takeEvery(appActions.UPDATE_TEST_ACTIVTY,sagaEngine)
+  yield takeEvery(appActions.SAVE_RESULT,sagaEngine)
   
   
 }

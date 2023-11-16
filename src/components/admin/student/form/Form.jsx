@@ -28,14 +28,6 @@ const Form = ({ formik }) => {
           size="small"
           formik={formik}
         />
-        <Box sx={{ margin: 1, mt: 2, width: 600 }}>
-          <SelectBox
-            formik={formik}
-            label={"Select Course"}
-            name={"userCourse"}
-            listItem={corseLists}
-          />
-        </Box>
       </Box>
       <Box sx={{ display: "flex", alignContent: "center" }}>
         <InputField
@@ -81,6 +73,15 @@ const Form = ({ formik }) => {
           sx={{ marginLeft: 1, marginTop: 2 }}
           size="small"
           formik={formik}
+        />
+      </Box>
+      <Box sx={{ margin: 1, mt: 2, width: 600 }}>
+        <SelectBox
+          formik={formik}
+          label={"Select Course"}
+          name={"userCourse"}
+          listItem={corseLists}
+          multiple={true}
         />
       </Box>
     </Box>

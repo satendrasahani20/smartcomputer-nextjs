@@ -14,12 +14,13 @@ export function* sagaEngine({ type, payload }) {
       request: payload,
     });
   } catch (error) {
+    payload?.errorCB && payload.errorCB(error);
     Toaster.error(error?.response?.data?.message || error?.message);
     if (error?.response?.status === 401) {
       yield put({ type: `${appActions[type]}_FAIL` ,request: payload});
       payload.push && payload.push("/login");
     }
-    payload?.errorCB && payload.errorCB(error?.response);
+   
 
     yield put({ type: `${appActions[type]}_FAIL` });
   }

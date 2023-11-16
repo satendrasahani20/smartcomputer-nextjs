@@ -15,16 +15,14 @@ export const forgetPasswordAction =payload=> ({
   payload
 });
 
-export const resetPasswordAction = (navigate, params, reset) => ({
+export const resetPasswordAction = payload => ({
   type: appActions.RESET_PASSWORD,
-  navigate,
-  payload: { params, reset },
+  payload
 });
 
-export const logoutAction = (navigate, setUser, socket, userId) => ({
+export const logoutAction = payload=> ({
   type: appActions.LOGOUT,
-  navigate,
-  payload: { setUser, socket, userId },
+  payload
 });
 
 export const emailVerificationAction = (navigate, params, setColorName) => ({

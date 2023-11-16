@@ -54,7 +54,7 @@ a:hover {
 }
 
 .header {
-  height: 200px !important;
+  height: 200px;
   background-color: #7B4EE9;
 }
 
@@ -70,10 +70,13 @@ a:hover {
 }
 
 .header .top_header h1 {
-  font-size: 34px;
+  font-size: 19px;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
   color: #fff;
+  position: absolute;
+  left: 410px;
+  top: 41px;
 }
 
 .menu_bar {
@@ -192,7 +195,7 @@ a:hover {
 
 .menu_cont .show_data {
   width: calc(100% - 380px);
-  padding-top: 120px;
+  padding-top: 54px;
   padding-left: 15px;
 }
 
@@ -370,8 +373,10 @@ a:hover {
 
 
   .header .top_header .top_heading h1 {
-    text-align: center;
     font-size: 24px;
+    margin-top: 10px;
+    margin: 10px 16px;
+    position: static;
   }
 
 
@@ -737,14 +742,26 @@ label {
 }
 
 .student-search fieldset{
-  border-color: white;
-  border-width: 1px;
+  border-width: 0px;
+  border-bottom: 1px solid #fff;
+  border-radius: 0px;
   margin-right: 12px;
+  
+  width: 170px;
   height: 37px;
 }
-.student-search .css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input{
+.student-search input{
   padding: 6px 13px;
+  color: #fff;
+  width: 153px;
 }
+
+
+/* student datshboard*/
+.student-card{
+  width: 300px;
+}
+
 
 .date-picker-centre{
   margin: 7px 0px 2px 10px;
@@ -752,4 +769,26 @@ label {
   padding: 7px;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
+}
+
+/* Test Screen */
+.test-container{
+  height: 400px;
+  width: 100%;
+  background-color: white;
+}
+.test-header{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 9px;
+
+}
+.test-body .question-name{
+  margin-left: 13px;
+  font-weight: bold;
+}
+.test-body .active{
+  border: 1px solid #7B4EE9;
+  padding: 0px 5px;
+  border-radius: 6px;
 }

@@ -18,6 +18,7 @@ import { Toaster } from "@/components/common/toaster/Toaster";
 import { debounce } from "lodash";
 import { clearImageAction } from "@/service/action/common";
 import QuardinatorTabelBody from "./QuardinatorTableBody";
+import SearchField from "@/components/common/SearchField";
 
 const Quardinator = () => {
   const { studentLists } = useSelector((state) => state.adminReducer);
@@ -101,13 +102,7 @@ const Quardinator = () => {
   return (
     <>
       <Box sx={{ position: "absolute", right: 14, marginTop: -6 }}>
-        <TextField
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search"
-          size="small"
-          className="student-search"
-        />
+      <SearchField search={search} setSearch={setSearch} />
         <Button
           size="small"
           variant="outlined"

@@ -1,8 +1,6 @@
-import {
-  studentTableHeading,
-} from "@/components/common/constant/Admin";
+import { studentTableHeading } from "@/components/common/constant/Admin";
 import Table from "@/components/common/table/Table";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, InputAdornment, TextField } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import StudentTableBody from "./StudentTableBody";
 import CustomModal from "@/components/common/modals/Modal";
@@ -21,6 +19,7 @@ import {
 import { Toaster } from "@/components/common/toaster/Toaster";
 import { debounce } from "lodash";
 import { clearImageAction } from "@/service/action/common";
+import SearchField from "@/components/common/SearchField";
 
 const StudentDashboard = () => {
   const { studentLists } = useSelector((state) => state.adminReducer);
@@ -28,7 +27,7 @@ const StudentDashboard = () => {
     edit: false,
     modal: false,
   });
-  const [search,setSearch]=useState("")
+  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const [pageData, setPageData] = useState({
     page: 1,
@@ -36,7 +35,13 @@ const StudentDashboard = () => {
   });
 
   function getStudent(search = "", page = 1) {
-    dispatch(getStudentListsAction({ search,pageData: { ...pageData, page }, role: "student" }));
+    dispatch(
+      getStudentListsAction({
+        search,
+        pageData: { ...pageData, page },
+        role: "student",
+      })
+    );
   }
 
   useEffect(() => {
@@ -52,11 +57,16 @@ const StudentDashboard = () => {
         ? dispatch(
             updateStudentAction({
               studentId: values?._id,
-              data: {...values, role: "student"},
+              data: { ...values, role: "student" },
               cb: callBack,
             })
           )
-        : dispatch(registerNewStudent({ data: {...values, role: "student"}, cb: callBack }));
+        : dispatch(
+            registerNewStudent({
+              data: { ...values, role: "student" },
+              cb: callBack,
+            })
+          );
     },
   });
 
@@ -65,7 +75,7 @@ const StudentDashboard = () => {
     getStudent();
     addStudentFormik.resetForm();
     setAddStudent({});
-    dispatch(clearImageAction({imageName:"image"}))
+    dispatch(clearImageAction({ imageName: "image" }));
   }
 
   const editStudent = (data) => {
@@ -86,7 +96,6 @@ const StudentDashboard = () => {
     return false;
   };
 
-
   const debounced = useRef(
     debounce((search, page) => {
       getStudent(search, page);
@@ -99,7 +108,7 @@ const StudentDashboard = () => {
   return (
     <>
       <Box sx={{ position: "absolute", right: 14, marginTop: -6 }}>
-        <TextField value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Search" size="small" className="student-search" />
+        <SearchField search={search} setSearch={setSearch} />
         <Button
           size="small"
           variant="outlined"

@@ -4,6 +4,7 @@ import SidebarAdmin from "./sidebar/SidebarAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "@/service/action/common";
 import { useRouter } from "next/router";
+import SidebarStudent from "./sidebar/SideBarStudent";
 
 const AdminLayout = ({ children }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const AdminLayout = ({ children }) => {
     <div className="dashboard_main">
       <DashboardHeader />
       <div className="menu_cont d-flex">
-        <SidebarAdmin />
+        {user?.role==="admin"?  <SidebarAdmin />:<SidebarStudent />}      
         <div className="show_data">{children}</div>
       </div>
     </div>

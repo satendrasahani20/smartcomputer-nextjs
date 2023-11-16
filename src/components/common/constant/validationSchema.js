@@ -29,7 +29,7 @@ export const addQuestionSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email address").required("Email is required"),
     userState: Yup.string().required("State is required"),
     number: Yup.string().required("Mobile Number is required"),
-    userCourse:Yup.string().required("Course is required"),
+    userCourse:Yup.array().required("Course is required"),
     userCity: Yup.string().required("District is required"),
     userAddress: Yup.string().required("Address is required"),
     userPincode: Yup.string().required("Pincode is required"),

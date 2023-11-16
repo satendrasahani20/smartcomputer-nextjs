@@ -8,7 +8,8 @@ const InputField = ({
   sx = {},
   size = "",
   fullWidth = {},
-  helperText=""
+  helperText="",
+  type="text"
 }) => {
   const hasError = formik.touched?.[name] && formik.errors?.[name];
   return (
@@ -24,6 +25,7 @@ const InputField = ({
         value={formik?.values?.[name]}
         error={hasError}
         helperText={helperText}
+        type={type}
       />
     </>
   );

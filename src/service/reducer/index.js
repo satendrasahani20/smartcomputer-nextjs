@@ -3,14 +3,14 @@ import { adminReducer } from "./admin";
 import { authenticationReducer } from "./authentication";
 import { commonReducer } from "./common";
 import { developerReducer } from "./developer";
-import { clientReducer } from "./client/index";
+import { studentReducer } from "./student/index";
 
 const appReducer = combineReducers({
   adminReducer,
   authenticationReducer,
   commonReducer,
   developerReducer,
-  clientReducer,
+  studentReducer,
 });
 
 export const rootReducer = (state, action) => {

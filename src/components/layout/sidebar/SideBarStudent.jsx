@@ -9,7 +9,7 @@ import ProfileImage from "../../../../public/assets/images/profile.png";
 import Image from "next/image";
 import { logoutAction } from "@/service/action/authentication";
 import { useDispatch } from "react-redux";
-const SidebarAdmin = () => {
+const SidebarStudent = () => {
   const router = useRouter();
   const dispatch=useDispatch()
   const callBack=()=>{
@@ -31,38 +31,38 @@ const SidebarAdmin = () => {
             />
           </figure>
           <p>
-            <span>Admin Name: </span>Satendra
+            <span>Student Name: </span>Satendra
           </p>
           <p>
-            <span>User Type: </span> Admin{" "}
+            <span>User Type: </span> Student{" "}
           </p>
         </div>
 
         <ul>
-          <li onClick={() => router?.push("/admin/student")}>
-            <a href="#" className={`${router.asPath.includes("/admin/student") && "active"}`}>
+          <li onClick={() => router?.push("/student/dashboard")}>
+            <a href="#" className={`${router.asPath.includes("/student/dashboard") && "active"}`}>
               <span>
                 <Image height="17" src={Dashboard} alt="Dashboard" />
               </span>
-              Students
+              Dashboard
             </a>
           </li>
-          <li onClick={() => router?.push("/admin/centre")}>
-            <a href="#"  className={`${router.asPath.includes("/admin/centre") && "active"}`}>
+          <li onClick={() => router?.push("/student/assessment")}>
+            <a href="#"  className={`${router.asPath.includes("/student/assessment") && "active"}`}>
               {" "}
               <span>
                 <Image height="17" src={Assessment} alt="Assesments" />
               </span>{" "}
-              Centre
+              Assessments
             </a>
           </li>
-          <li onClick={() => router?.push("/admin/quardinator")}>
-            <a href="#"  className={`${router.asPath.includes("/admin/quardinator") && "active"}`}>
+          <li onClick={() => router?.push("/student/i-card")}>
+            <a href="#"  className={`${router.asPath.includes("/student/i-card") && "active"}`}>
               {" "}
               <span>
                 <Image height="17" src={Assessment} alt="Assesments" />
               </span>{" "}
-              Quardinator
+              I-Card
             </a>
           </li>
           <li onClick={() => router?.push("/admin/results")}>
@@ -74,17 +74,8 @@ const SidebarAdmin = () => {
               Results
             </a>
           </li>
-          <li onClick={() => router?.push("/admin/assessments")}>
-            <a href="#"  className={`${router.asPath.includes("/admin/assessments") && "active"}`}>
-              {" "}
-              <span>
-                <Image height="17" src={Downloads} alt="Download" />
-              </span>{" "}
-              Assessments{" "}
-            </a>
-          </li>
-          <li onClick={() => router?.push("/admin/profile")}>
-            <a href="#"  className={`${router.asPath.includes("/admin/profile") && "active"}`}>
+          <li onClick={() => router?.push("/student/profile")}>
+            <a href="#"  className={`${router.asPath.includes("/student/profile") && "active"}`}>
               {" "}
               <span>
                 <Image height="17" src={ProfileIcon} alt="Profile" />
@@ -108,4 +99,4 @@ const SidebarAdmin = () => {
   );
 };
 
-export default SidebarAdmin;
+export default SidebarStudent;

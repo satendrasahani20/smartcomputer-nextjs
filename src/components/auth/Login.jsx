@@ -17,7 +17,7 @@ const Login = () => {
     if(data.role==="admin"){
       router.push("/admin/student")
     }else if(data.role==="student"){
-      router.push("/student/dashbaord")
+      router.push("/student/dashboard")
     }
   };
 
@@ -64,7 +64,7 @@ const Login = () => {
                       Forget Password?{" "}
                     </a>{" "}
                   </label>
-                  <InputField formik={loginNow} name="password" size="small" />
+                  <InputField type="password" formik={loginNow} name="password" size="small" />
                 </div>
                 <div className="form-group mt-4 mb-4">
                   <div className="custom-control custom-checkbox"></div>
