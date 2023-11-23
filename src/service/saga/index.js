@@ -44,8 +44,8 @@ function* mySaga() {
   yield takeEvery(appActions.GET_STUDENT_COURSE,sagaEngine)
   yield takeEvery(appActions.START_TEST,sagaEngine),
   yield takeEvery(appActions.UPDATE_TEST_ACTIVTY,sagaEngine)
-  yield takeEvery(appActions.SAVE_RESULT,sagaEngine)
-  
+  yield takeEvery(appActions.SAVE_RESULT,sagaEngine),
+  yield takeEvery(appActions.GET_RESULT,sagaEngine)
   
 }
 

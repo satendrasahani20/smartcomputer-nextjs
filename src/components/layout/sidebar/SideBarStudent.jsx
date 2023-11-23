@@ -47,7 +47,7 @@ const SidebarStudent = () => {
               Dashboard
             </a>
           </li>
-          <li onClick={() => router?.push("/student/assessment")}>
+          {/* <li onClick={() => router?.push("/student/assessment")}>
             <a href="#"  className={`${router.asPath.includes("/student/assessment") && "active"}`}>
               {" "}
               <span>
@@ -55,8 +55,8 @@ const SidebarStudent = () => {
               </span>{" "}
               Assessments
             </a>
-          </li>
-          <li onClick={() => router?.push("/student/i-card")}>
+          </li> */}
+          {/* <li onClick={() => router?.push("/student/i-card")}>
             <a href="#"  className={`${router.asPath.includes("/student/i-card") && "active"}`}>
               {" "}
               <span>
@@ -64,9 +64,9 @@ const SidebarStudent = () => {
               </span>{" "}
               I-Card
             </a>
-          </li>
-          <li onClick={() => router?.push("/admin/results")}>
-            <a href="#"  className={`${router.asPath.includes("/admin/results") && "active"}`}>
+          </li> */}
+          <li onClick={() => router?.push("/student/result")}>
+            <a href="#"  className={`${router.asPath.includes("/student/result") && "active"}`}>
               {" "}
               <span>
                 <Image height="17" src={Results} alt="Results" />

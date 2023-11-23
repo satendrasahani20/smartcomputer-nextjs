@@ -13,6 +13,14 @@ export const studentReducer = (state = initialState, action) => {
   case `${appActions.GET_STUDENT_COURSE}_FAIL`:
     return { ...state, courseLoading: true };
 
+    // Student result
+    case `${appActions.GET_RESULT}_START`:
+    return { ...state, isResult: true };
+  case `${appActions.GET_RESULT}_SUCCESS`:
+    return { ...state, isResult: true ,results:action?.payload};
+  case `${appActions.GET_RESULT}_FAIL`:
+    return { ...state, isResult: true };
+
   default:
     return { ...state };
   }

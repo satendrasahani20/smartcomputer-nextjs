@@ -17,3 +17,8 @@ export const saveResultAction=(payload)=>({
   type: appActions.SAVE_RESULT,
   payload,
 })
+
+export const getResultAction=(payload)=>({
+  type: appActions.GET_RESULT,
+  payload,
+})

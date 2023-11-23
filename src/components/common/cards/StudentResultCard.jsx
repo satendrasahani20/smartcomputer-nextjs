@@ -5,36 +5,41 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { calculatePercentage, dateFormate } from "../function";
 
-export default function StudentCourseCard({ sx, data,onDone,buttonTitle="Start Test" }) {
-  const cardImage =
-    "https://ik.imagekit.io/bbnngj9wy/pretty-girl-group-young-people-casual-clothes-working-modern-office_146671-16507_8Wqe_zmIY.avif";
+export default function StudentResultCard({ sx, data,onDone }) {
+ const PassIcon="https://ik.imagekit.io/bbnngj9wy/pass-result_lgzgKwOok.png"
+ const FailIcon="https://ik.imagekit.io/bbnngj9wy/fail-result_natHBIYnd.png"
   return (
     <Card sx={{ maxWidth: 545, ...sx }} className="student-card">
-      <CardMedia sx={{ height: 140 }} image={cardImage} title="green iguana" />
+      <CardMedia sx={{ height: 100,width:100 }} image={data?.status==="passed"?PassIcon:FailIcon} title="green iguana" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {data?.name}
+          {data?.courseName}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Duration : {data?.duration}{" "}
+          Test  Date : {dateFormate(data?.attemptAt)}{" "}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Max Mark : {data?.maxMark}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Cutt-off Score : {data?.cuttOffScore}
+          Your Score : {data?.obtainedScore}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Total Question : {data?.questionNo}
+          Percentage : {calculatePercentage(data?.obtainedScore,data?.maxMark) }%
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {" "}
-          Test Timing : {data?.testTiming} Minutes
+          Status : <span className={`${data?.status=="failed" ?"text-danger":"text-success"} `}><b>{data?.status?.toUpperCase()}</b></span>
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {" "}
+          Attempt Count: {data?.attemptCount}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={()=>onDone(data)}>{buttonTitle}</Button>
+        <Button size="small" onClick={()=>onDone(data)}>{"Download Result"}</Button>
       </CardActions>
     </Card>
   );
