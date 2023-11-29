@@ -31,7 +31,15 @@ export const studentTableHeading = [
   "Name",
   "Institute",
   "Reg Date",
-  "Centre",
+  "Register By",
+  "Edit"
+];
+export const qurdinatorTableHeading = [
+  "Sr.No",
+  "Image",
+  "Name",
+  "Institute",
+  "Reg Date",
   "Edit"
 ];
 export const centreTableHeading = [
@@ -42,4 +50,29 @@ export const centreTableHeading = [
   "Reg Date",
   "Address",
   "Edit"
+];
+export const centreTableHeadingAdmin = [
+  "Sr.No",
+  "Centre",
+  "Owner",
+  "Contact",
+  "Reg Date",
+  "Register By",
+  "Edit"
+];
+export const studentTableHeadingQuard = [
+  "Sr.No",
+  "Image",
+  "Name",
+  "Institute",
+  "Reg Date",
+  "Edit"
+];
+export const resultTableHeading = [
+  "Sr.No",
+  "Student Name",
+  "Course",
+  "Email",
+  "Blocked",
+  "Action",
 ];

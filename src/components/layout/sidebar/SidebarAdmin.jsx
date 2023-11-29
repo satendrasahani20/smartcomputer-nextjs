@@ -83,7 +83,7 @@ const SidebarAdmin = () => {
               Assessments{" "}
             </a>
           </li>
-          <li onClick={() => router?.push("/admin/profile")}>
+          {/* <li onClick={() => router?.push("/admin/profile")}>
             <a href="#"  className={`${router.asPath.includes("/admin/profile") && "active"}`}>
               {" "}
               <span>
@@ -91,7 +91,7 @@ const SidebarAdmin = () => {
               </span>{" "}
               Profile
             </a>
-          </li>
+          </li> */}
         </ul>
 
         <a href="#-" onClick={()=>dispatch(logoutAction({cb:callBack}))} className="logout">

@@ -20,6 +20,7 @@ import { Toaster } from "@/components/common/toaster/Toaster";
 import { debounce } from "lodash";
 import { clearImageAction } from "@/service/action/common";
 import SearchField from "@/components/common/SearchField";
+import { removeEmptyElement } from "@/components/common/function";
 
 const StudentDashboard = () => {
   const { studentLists } = useSelector((state) => state.adminReducer);
@@ -53,6 +54,7 @@ const StudentDashboard = () => {
     initialValues: studentRegister,
     validationSchema: updateStudentSchema,
     onSubmit: (values) => {
+      values={...values,userCourse:removeEmptyElement(values?.userCourse)}
       addStudent.edit
         ? dispatch(
             updateStudentAction({

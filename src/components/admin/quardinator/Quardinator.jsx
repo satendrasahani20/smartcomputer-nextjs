@@ -1,4 +1,4 @@
-import { studentTableHeading } from "@/components/common/constant/Admin";
+import { qurdinatorTableHeading, studentTableHeading } from "@/components/common/constant/Admin";
 import Table from "@/components/common/table/Table";
 import { Box, Button, TextField } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
@@ -116,7 +116,7 @@ const Quardinator = () => {
         </Button>
       </Box>
       <Table
-        tableHeading={studentTableHeading}
+        tableHeading={qurdinatorTableHeading}
         isDataLoading={false}
         getData={getQuardinater}
         data={studentLists}

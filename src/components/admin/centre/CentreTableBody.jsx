@@ -17,7 +17,7 @@ const CentreTableBody = ({ data = [], editBtn, detailBtn }) => {
       <StyledTableCell>{row?.ownerName}</StyledTableCell>
       <StyledTableCell>{row?.number}</StyledTableCell>
       <StyledTableCell>{dateFormate(row?.createdAt) }</StyledTableCell>
-      <StyledTableCell>{row?.address}</StyledTableCell>
+      <StyledTableCell>{row?.registerBy?.name || "Admin"}</StyledTableCell>
       <StyledTableCell>
         <IconButtons
           onClick={(e) => {

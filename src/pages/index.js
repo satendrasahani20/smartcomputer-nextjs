@@ -1,8 +1,8 @@
-import Login from '@/components/auth/Login'
+import HomePage from '@/components/home-page/HomePage'
 import React from 'react'
 
 const index = () => {
-  return <Login/>
+  return <HomePage />
 }
 
 export default index

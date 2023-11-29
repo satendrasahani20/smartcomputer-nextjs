@@ -18,7 +18,7 @@ const QuardinatorTabelBody = ({ data = [], editBtn, detailBtn }) => {
      
       <StyledTableCell>{row?.institute || "Smart Computer"}</StyledTableCell>
       <StyledTableCell>{dateFormate(row?.createdAt) }</StyledTableCell>
-      <StyledTableCell>1</StyledTableCell>
+      {/* <StyledTableCell>{1}</StyledTableCell> */}
       <StyledTableCell>
         <IconButtons
           onClick={(e) => {

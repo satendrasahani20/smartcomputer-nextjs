@@ -18,7 +18,7 @@ const StudentTableBody = ({ data = [], editBtn, detailBtn }) => {
      
       <StyledTableCell>{row?.institute || "Smart Computer"}</StyledTableCell>
       <StyledTableCell>{dateFormate(row?.createdAt) }</StyledTableCell>
-      <StyledTableCell>not attempt</StyledTableCell>
+      <StyledTableCell>{row?.registerBy?.name || "Admin"}</StyledTableCell>
       <StyledTableCell>
         <IconButtons
           onClick={(e) => {

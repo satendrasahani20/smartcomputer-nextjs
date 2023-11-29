@@ -616,7 +616,8 @@ a:hover {
 }
 
 .login-area {
-  background-color: #7B4EE9;
+  
+  background: linear-gradient(to bottom, #000000, #7b4ee9);
   height: 100vh;
 }
 
@@ -792,3 +793,71 @@ label {
   padding: 0px 5px;
   border-radius: 6px;
 }
+
+.quardinate .sidebar{
+  background-color:#212b36;
+  height: 100vh;
+  width: 250px;
+}
+.quardinate{
+  display: flex;
+}
+.quardinate .body-data{
+  background-color:#f1f5f9;
+  width: 100%;
+}
+.quardinate .header{ 
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+    justify-content: space-between;
+}
+
+.quardinate .back-section{
+  height: 170px;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  background-color: #7B4EE9;
+}
+
+.quardinate .child{
+  position: absolute;
+  z-index: 2;
+  margin-top: 69px;
+  margin-left: 20px;
+  width: 83%;
+}
+.quardinate .search{
+  padding: 7px 10px;
+}
+.quardinate .MuiInputBase-root{
+  height: 33px;
+}
+.quardinate .profile-img{
+  border-radius: 50%;
+    margin: 10px;
+}
+.quardinate .logo img{
+  color: transparent;
+  margin-left: 50px;
+  width: 110px;
+  height: 110px;
+}
+.quardinate .sidebar ul{
+  margin: 27px 14px;
+  color: #fff;
+  font-family: monospace;
+  line-height: 32px;
+}
+.quardinate .sidebar ul .active{
+  text-decoration: underline;
+}
+.pointer{
+  cursor: pointer;
+}
+
+
+
+/* HomePages */

@@ -18,6 +18,10 @@ const Login = () => {
       router.push("/admin/student")
     }else if(data.role==="student"){
       router.push("/student/dashboard")
+    }else if(data.role==="quardinate"){
+      router.push("/quardinator/student")
+    }else if(data.role==="centre"){
+      router.push("/centre/student")
     }
   };
 
@@ -36,7 +40,7 @@ const Login = () => {
           <div className="col-md-5 mx-auto">
             <div className="login-box">
               <a href="#" className="login-logo">
-                <Image src={Logo} alt="logo" />
+                <Image src={Logo} alt="logo" onClick={()=>router.push("/")}/>
               </a>{" "}
               <br /> <br />
             </div>

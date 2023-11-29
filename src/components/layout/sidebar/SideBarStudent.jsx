@@ -74,7 +74,7 @@ const SidebarStudent = () => {
               Results
             </a>
           </li>
-          <li onClick={() => router?.push("/student/profile")}>
+          {/* <li onClick={() => router?.push("/student/profile")}>
             <a href="#"  className={`${router.asPath.includes("/student/profile") && "active"}`}>
               {" "}
               <span>
@@ -82,7 +82,7 @@ const SidebarStudent = () => {
               </span>{" "}
               Profile
             </a>
-          </li>
+          </li> */}
         </ul>
 
         <a href="#-" onClick={()=>dispatch(logoutAction({cb:callBack}))} className="logout">

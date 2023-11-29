@@ -1,4 +1,4 @@
-import { centreTableHeading } from "@/components/common/constant/Admin";
+import { centreTableHeading, centreTableHeadingAdmin } from "@/components/common/constant/Admin";
 import Table from "@/components/common/table/Table";
 import { Box, Button, TextField } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
@@ -6,7 +6,6 @@ import { useFormik } from "formik";
 import {
   initialValuesCentre,
 } from "@/components/common/constant/formInitialValue";
-import { updateQuardinateSchema } from "@/components/common/constant/validationSchema";
 import { useDispatch, useSelector } from "react-redux";
 import { Toaster } from "@/components/common/toaster/Toaster";
 import { debounce } from "lodash";
@@ -15,7 +14,6 @@ import CentreTableBody from "./CentreTableBody";
 import CustomModal from "@/components/common/modals/Modal";
 import RegistrationFormContent from "./RegistrationFormContent";
 import { deleteCentreAction, getCentreAction, registerCentreAction, updateCentreAction } from "@/service/action/admin";
-import InputField from "@/components/common/InputField";
 import SearchField from "@/components/common/SearchField";
 
 const Centre = () => {
@@ -97,7 +95,7 @@ const Centre = () => {
         </Button>
       </Box>
       <Table
-        tableHeading={centreTableHeading}
+        tableHeading={centreTableHeadingAdmin}
         isDataLoading={isCentreLoading}
         getData={getCentre}
         data={centreLists}
