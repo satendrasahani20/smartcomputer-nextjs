@@ -4,6 +4,7 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { Delete, UploadFile } from "@mui/icons-material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { CircularProgress } from "@mui/material";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 const MaterialIcons = ({ iconName, fontSize }) => {
   switch (iconName) {
     case "edit":
@@ -18,6 +19,9 @@ const MaterialIcons = ({ iconName, fontSize }) => {
       return <CircularProgress fontSize={fontSize}  />;
     case "upload":
       return <UploadFile/>
+      case "preview":
+        return <RemoveRedEyeIcon />
+      
 
   }
 };

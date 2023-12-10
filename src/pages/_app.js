@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
     <Provider store={store}>
     <ThemeProvider theme={theme}>
     <ToastContainer
-          position="bottom-right"
+          position="top-center"
           autoClose={500}
           hideProgressBar={false}
           newestOnTop={false}

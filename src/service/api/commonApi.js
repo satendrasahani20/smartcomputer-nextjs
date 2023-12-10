@@ -17,5 +17,6 @@ export const commonApi = {
     ),
   OPEN_COMPANY_PROFILE: () => api.get("/get-client-spotlight"),
   UPLOAD_IMAGE:payload=>api.post("/upload-image/",payload.data),
+  GET_CERTIFICATE_OPEN:payload=>api.get(`/get-certificate/${payload.testId}`),
   
 };

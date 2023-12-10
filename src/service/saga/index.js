@@ -36,9 +36,12 @@ function* mySaga() {
   yield takeEvery(appActions.GET_CENTRE,sagaEngine)
   yield takeEvery(appActions.DELETE_CENTRE,sagaEngine)
   yield takeEvery(appActions.UPDATE_CENTRE,sagaEngine)
+  yield takeEvery(appActions.DIRECT_RESULT_UPDATE,sagaEngine)
+  yield takeEvery(appActions.UPDATE_CERTIFICATE,sagaEngine)
   
   // common
   yield takeEvery(appActions.UPLOAD_IMAGE,sagaEngine)
+  yield takeEvery(appActions.GET_CERTIFICATE_OPEN,sagaEngine)
 
   // student
   yield takeEvery(appActions.GET_STUDENT_COURSE,sagaEngine)
@@ -46,6 +49,8 @@ function* mySaga() {
   yield takeEvery(appActions.UPDATE_TEST_ACTIVTY,sagaEngine)
   yield takeEvery(appActions.SAVE_RESULT,sagaEngine),
   yield takeEvery(appActions.GET_RESULT,sagaEngine)
+  yield takeEvery(appActions.GET_ALL_CERTIFICATE,sagaEngine)
+
   
 }
 

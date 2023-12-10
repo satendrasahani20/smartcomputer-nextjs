@@ -24,3 +24,7 @@ export const clearImageAction=payload=>({
   type: appActions.CLEAR_IMAGE,
   payload
 });
+export const getCertificateOpenAction=payload=>({
+  type: appActions.GET_CERTIFICATE_OPEN,
+  payload
+});

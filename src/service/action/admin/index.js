@@ -79,3 +79,17 @@ export const deleteCentreAction = payload => ({
   type: appActions.DELETE_CENTRE,
   payload,
 });
+export const getAllCertificate=payload=>({
+  type: appActions.GET_ALL_CERTIFICATE,
+  payload,
+})
+export const directResultUpdateAction=payload=>({
+  type: appActions.DIRECT_RESULT_UPDATE,
+  payload,
+})
+
+export const updateCertificateAction=payload=>({
+  type: appActions.UPDATE_CERTIFICATE,
+  payload,
+})
+

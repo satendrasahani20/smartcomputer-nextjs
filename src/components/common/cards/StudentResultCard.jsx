@@ -39,7 +39,7 @@ export default function StudentResultCard({ sx, data,onDone }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={()=>onDone(data)}>{"Download Result"}</Button>
+        <Button size="small" onClick={()=>onDone(data?.certificateLink)}>{"Download Result"}</Button>
       </CardActions>
     </Card>
   );

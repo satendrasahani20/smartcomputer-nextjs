@@ -23,13 +23,16 @@ const TestScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { courseId } = router.query;
 
+  const callBack=()=>{
+    router.push("/student/result")
+  }
   const saveResult = () => {
     let tempObj = {
       courseId,
       noOfAllQuestion: testData?.question?.length,
       answer,
     };
-    dispatch(saveResultAction({data:tempObj}))
+    dispatch(saveResultAction({data:tempObj,cb:callBack}))
   };
   useEffect(() => {
     let testTime = englishTestTime;
@@ -100,9 +103,7 @@ const TestScreen = () => {
     });
   };
 
-  useEffect(() => {
-    console.log("answer", answer);
-  }, [answer]);
+
   return (
     <Box className="test-container">
       <Box className="test-header">

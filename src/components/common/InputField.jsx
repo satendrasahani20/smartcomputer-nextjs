@@ -9,7 +9,8 @@ const InputField = ({
   size = "",
   fullWidth = {},
   helperText="",
-  type="text"
+  type="text",
+  disabled=false
 }) => {
   const hasError = formik.touched?.[name] && formik.errors?.[name];
   return (
@@ -26,6 +27,7 @@ const InputField = ({
         error={hasError}
         helperText={helperText}
         type={type}
+        disabled={disabled}
       />
     </>
   );

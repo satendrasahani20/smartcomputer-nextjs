@@ -73,6 +73,15 @@ export const resultTableHeading = [
   "Student Name",
   "Course",
   "Email",
-  "Blocked",
+  "Approve",
+  "Preview",
+  "Upload",
+];
+
+export const directResultTableHeading = [
+  "Test Id",
+  "Student Name",
+  "Course",
+  "Email",
   "Action",
 ];

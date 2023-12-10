@@ -3,7 +3,7 @@ import  Buttons  from '@mui/material/Button'
 import React from 'react'
 import MaterialIcons from '../icons/materialIcons';
 
-const Button = ({size="",isLoading,label,variant="contained",sx={},style={},onClick,fullWidth=false,iconName="",iconSize}) => {
+const Button = ({className="", size="",isLoading,label,variant="contained",sx={},style={},onClick,fullWidth=false,iconName="",iconSize}) => {
   return (
     <Buttons
     variant={variant}
@@ -12,6 +12,7 @@ const Button = ({size="",isLoading,label,variant="contained",sx={},style={},onCl
     onClick={onClick}
     size={size}
     sx={sx}
+    className={className}
     style={style}
     startIcon={ isLoading?<CircularProgress size={20} style={{color:"#fff"}}/> :iconName && <MaterialIcons iconName={iconName}  fontSize={iconSize}/>}
   >

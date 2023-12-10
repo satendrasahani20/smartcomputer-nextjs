@@ -1,30 +1,42 @@
 import IconButtons from "@/components/common/buttons/IconButton";
-import { dateFormate } from "@/components/common/function";
 import {
   StyledTableCell,
   StyledTableRow,
 } from "@/components/common/table/tableStyle";
 import { Switch } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 
-const ResultTabelBody = ({ data = [], editBtn, detailBtn }) => {
-    const [checked,setChecked]=useState(false)
+const ResultTabelBody = ({ data = [], editBtn, detailBtn, showResult,updateStatus }) => {
   return data?.map((row, index) => (
-    <StyledTableRow key={index} onClick={() => detailBtn(row)}>
-      <StyledTableCell component="th" scope="row" sx={{width:5}}>
+    <StyledTableRow key={index}>
+      <StyledTableCell component="th" scope="row" sx={{ width: 5 }}>
         {index + 1}
       </StyledTableCell>
       <StyledTableCell>{row?.name}</StyledTableCell>
 
-      <StyledTableCell style={{width: "181px"}}>Advance Diploma in Computer Hardware & Networking (ADCHN)</StyledTableCell>
-      <StyledTableCell>{"satendrasahani19@gmail.com"}</StyledTableCell>
+      <StyledTableCell style={{ width: "181px" }}>
+        {row?.courseName}
+      </StyledTableCell>
+      <StyledTableCell>{row?.email}</StyledTableCell>
       <StyledTableCell>
         <Switch
-          checked={checked}
-          onChange={(e)=>{
+          checked={row?.isApproved}
+          onChange={(e) => {
             e.stopPropagation();
-            setChecked(!checked)}}
+            updateStatus(row)
+          }}
           inputProps={{ "aria-label": "controlled" }}
+        />
+      </StyledTableCell>
+      <StyledTableCell component="th" scope="row" sx={{ width: 5 }}>
+        <IconButtons
+          onClick={(e) => {
+            e.stopPropagation();
+            showResult(row);
+          }}
+          color={row?.certificateLink?"success":""}
+          
+          lable={"preview"}
         />
       </StyledTableCell>
       <StyledTableCell>
