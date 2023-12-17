@@ -9,7 +9,7 @@ import ProfileImage from "../../../../public/assets/images/profile.png";
 import Image from "next/image";
 import { logoutAction } from "@/service/action/authentication";
 import { useDispatch } from "react-redux";
-const SidebarStudent = () => {
+const SidebarStudent = ({user}) => {
   const router = useRouter();
   const dispatch=useDispatch()
   const callBack=()=>{
@@ -31,7 +31,7 @@ const SidebarStudent = () => {
             />
           </figure>
           <p>
-            <span>Student Name: </span>Satendra
+            <span>Student Name: </span>{user?.name}
           </p>
           <p>
             <span>User Type: </span> Student{" "}
@@ -42,7 +42,7 @@ const SidebarStudent = () => {
           <li onClick={() => router?.push("/student/dashboard")}>
             <a href="#" className={`${router.asPath.includes("/student/dashboard") && "active"}`}>
               <span>
-                <Image height="17" src={Dashboard} alt="Dashboard" />
+                <Image height="17" src={user?.image} alt="Dashboard" />
               </span>
               Dashboard
             </a>

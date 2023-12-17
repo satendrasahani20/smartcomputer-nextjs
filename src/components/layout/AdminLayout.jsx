@@ -18,7 +18,7 @@ const AdminLayout = ({ children }) => {
     <div className="dashboard_main">
       <DashboardHeader />
       <div className="menu_cont d-flex">
-        {user?.role==="admin"?  <SidebarAdmin />:<SidebarStudent />}      
+        {user?.role==="admin"?  <SidebarAdmin user={user}/>:<SidebarStudent user={user} />}      
         <div className="show_data">{children}</div>
       </div>
     </div>

@@ -9,7 +9,7 @@ import ProfileImage from "../../../../public/assets/images/profile.png";
 import Image from "next/image";
 import { logoutAction } from "@/service/action/authentication";
 import { useDispatch } from "react-redux";
-const SidebarAdmin = () => {
+const SidebarAdmin = ({user}) => {
   const router = useRouter();
   const dispatch=useDispatch()
   const callBack=()=>{
@@ -31,10 +31,10 @@ const SidebarAdmin = () => {
             />
           </figure>
           <p>
-            <span>Admin Name: </span>Satendra
+            <span>Admin Name: </span>{user?.name}
           </p>
           <p>
-            <span>User Type: </span> Admin{" "}
+            <span>User Type: </span> {user?.role}{" "}
           </p>
         </div>
 
@@ -83,15 +83,6 @@ const SidebarAdmin = () => {
               Assessments{" "}
             </a>
           </li>
-          {/* <li onClick={() => router?.push("/admin/profile")}>
-            <a href="#"  className={`${router.asPath.includes("/admin/profile") && "active"}`}>
-              {" "}
-              <span>
-                <Image height="17" src={ProfileIcon} alt="Profile" />
-              </span>{" "}
-              Profile
-            </a>
-          </li> */}
         </ul>
 
         <a href="#-" onClick={()=>dispatch(logoutAction({cb:callBack}))} className="logout">

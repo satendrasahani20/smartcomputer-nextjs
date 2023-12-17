@@ -20,10 +20,10 @@ const CentreQuardinatorLaout = ({ children }) => {
           {user?.role === "quardinate" ? (
             <SidebarQuardinator />
           ) : (
-            <SidebarCentre />
+            <SidebarCentre  />
           )}
           <div className="body-data">
-            <CentreQuardinatorHeader />
+            <CentreQuardinatorHeader user={user} />
             <div className="child">
             {children}
             </div>
