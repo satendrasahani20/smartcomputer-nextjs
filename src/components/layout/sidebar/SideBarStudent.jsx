@@ -24,7 +24,7 @@ const SidebarStudent = ({user}) => {
         <div className="profile_sec">
           <figure>
             <Image
-              src={ProfileImage}
+              src={user?.image || ProfileImage}
               width={150}
               height={150}
               alt="Student Image"
@@ -42,7 +42,7 @@ const SidebarStudent = ({user}) => {
           <li onClick={() => router?.push("/student/dashboard")}>
             <a href="#" className={`${router.asPath.includes("/student/dashboard") && "active"}`}>
               <span>
-                <Image height="17" src={user?.image} alt="Dashboard" />
+                <Image height="17" width="18" src={Assessment} alt="Dashboard" />
               </span>
               Dashboard
             </a>
@@ -69,7 +69,7 @@ const SidebarStudent = ({user}) => {
             <a href="#"  className={`${router.asPath.includes("/student/result") && "active"}`}>
               {" "}
               <span>
-                <Image height="17" src={Results} alt="Results" />
+                <Image height="17"  width="18" src={Results} alt="Results" />
               </span>{" "}
               Results
             </a>
