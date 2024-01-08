@@ -70,7 +70,9 @@ const TestScreen = () => {
     router.push("/student/dashboard");
   };
   useEffect(() => {
+    if(courseId){
     dispatch(startTestAction({ courseId, errorCB: errorCallBack }));
+    }
   }, [courseId]);
 
   const handleNext = () => {
