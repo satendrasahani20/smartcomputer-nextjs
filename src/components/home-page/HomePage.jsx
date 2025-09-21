@@ -5,7 +5,8 @@ import AboutArea from "./component/AboutArea";
 import PopularCourses from "./component/PopularCourses";
 import AboutGallery from "./component/AboutGallery";
 import HomeFooter from "./component/HomeFooter";
-import Contact from "./component/Contact";
+import LeadershipSection from "./component/leadership-section";
+// import Contact from "./component/Contact";
 const HomePage = () => {
   return (
     <Fragment>
@@ -14,7 +15,8 @@ const HomePage = () => {
       <AboutArea />
       <PopularCourses />
       <AboutGallery />
-      <Contact/>
+      <LeadershipSection />
+      {/* <Contact/> */}
       <HomeFooter />
    
     </Fragment>
