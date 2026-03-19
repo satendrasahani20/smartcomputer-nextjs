@@ -1,6 +1,6 @@
 import { centreTableHeading, centreTableHeadingAdmin } from "@/components/common/constant/Admin";
 import Table from "@/components/common/table/Table";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import {
@@ -62,11 +62,20 @@ const Centre = () => {
     addCentreFormik.setValues(data);
   };
 
+  const [deleteConfirm, setDeleteConfirm] = useState(false);
+
   const handleCentreDelete = () => {
+    setDeleteConfirm(true);
+  };
+
+  const confirmDelete = () => {
     dispatch(deleteCentreAction({
       centreId:addCentreFormik.values?._id,
-      cb:callBack
-    }))
+      cb:(res) => {
+        callBack(res);
+        setDeleteConfirm(false);
+      }
+    }));
   };
 
   const debounced = useRef(
@@ -118,6 +127,23 @@ const Centre = () => {
         onDelete={handleCentreDelete}
         width="80%"
       />
+      <Dialog
+        open={deleteConfirm}
+        onClose={() => setDeleteConfirm(false)}
+      >
+        <DialogTitle>Delete Centre</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to delete this centre? This action cannot be undone.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setDeleteConfirm(false)}>Cancel</Button>
+          <Button onClick={confirmDelete} color="error" variant="contained">
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };
